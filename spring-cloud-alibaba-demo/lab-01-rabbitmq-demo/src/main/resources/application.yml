@@ -1,0 +1,11 @@
+server:
+  port: 8077
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: root
+    password: 123123
+    listener:
+      simple:
+        acknowledge-mode: auto

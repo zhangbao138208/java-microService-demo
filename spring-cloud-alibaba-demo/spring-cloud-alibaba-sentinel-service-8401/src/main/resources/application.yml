@@ -1,0 +1,24 @@
+server:
+  port: 8401 #端口
+
+spring:
+  application:
+    name: sentinel-service #服务名
+  cloud:
+    nacos:
+      discovery:
+        #Nacos服务注册中心(集群)地址
+        server-addr: 16.163.97.13:8848
+
+    sentinel:
+      transport:
+        #配置 Sentinel dashboard 地址
+        dashboard: 127.0.0.1:8858
+        #默认8719端口，假如被占用会自动从8719开始依次+1扫描,直至找到未被占用的端口
+        port: 8719
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

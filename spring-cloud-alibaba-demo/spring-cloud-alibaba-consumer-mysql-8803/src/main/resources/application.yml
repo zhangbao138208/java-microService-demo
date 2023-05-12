@@ -1,0 +1,22 @@
+server:
+  port: 8803
+spring:
+  application:
+    name: spring-cloud-alibaba-consumer-mysql-feign
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 16.163.97.13:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8858
+        port: 8721
+
+# 以下配置信息并不是默认配置，而是我们自定义的配置，目的是不在 Controller 内硬编码 服务提供者的服务名
+service-url:
+  nacos-user-service: http://spring-cloud-alibaba-provider-mysql #消费者要方位的微服务名称
+
+# 激活Sentinel对Feign的支持
+feign:
+  sentinel:
+    enabled: true

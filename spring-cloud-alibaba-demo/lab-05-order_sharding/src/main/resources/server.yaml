@@ -1,0 +1,23 @@
+mode:
+  type: Cluster
+  repository:
+    #type: ZooKeeper
+    type: Etcd
+    props:
+      namespace: governance
+      #server-lists: 16.163.97.13:12181
+      server-lists: http://16.163.97.13:2349
+      # 建立逻辑数据库 和 连接用户名
+      #rules:
+      #  - !AUTHORITY
+      #    users:
+      # 格式为: 用户名@域名:密码，以下格式为 root 用户的密码为 root，并且所有主机可访问，所有逻辑数据库
+    #     - root@%:root
+    #  provider:
+    #   type: ALL_PERMITTED
+rules:
+  - !AUTHORITY
+    users:
+      - root@%:root
+    provider:
+      type: ALL_PERMITTED

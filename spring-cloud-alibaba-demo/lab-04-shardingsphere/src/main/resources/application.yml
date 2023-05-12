@@ -1,0 +1,31 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: Sharding-Jdbc-demo
+  datasource:
+    username: root        #数据库登陆用户名
+    #password: mauFJcuf5dhRMQrjj        #数据库登陆密码
+    #url: jdbc:mysql://16.163.97.13:3306/tb1?autoReconnect=true&useSSL=false       #数据库url
+    password: root        #数据库登陆密码
+    #url: jdbc:mysql://16.163.97.13:13305/readwrite_splitting_db?autoReconnect=true&useSSL=false       #数据库url
+
+    url: jdbc:mysql://16.163.97.13:13305/sharding_db?autoReconnect=true&useSSL=false       #数据库url
+    driver-class-name: com.mysql.jdbc.Driver   #数据库驱动
+
+#  datasource:
+#    username: root        #数据库登陆用户名
+#    password: mauFJcuf5dhRMQrjj        #数据库登陆密码
+#    url: jdbc:mysql://16.163.97.13:3306/quotes?autoReconnect=true&useSSL=false       #数据库url
+#    driver-class-name: com.mysql.jdbc.Driver
+# mybatis-plus 配置内容
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true # 虽然默认为 true ，但是还是显示去指定下。
+  global-config:
+    db-config:
+      id-type: auto # ID 主键自增
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: cn.iocoder.springboot.lab12.mybatis.dataobject

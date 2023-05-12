@@ -1,0 +1,32 @@
+server:
+  port: 8003 #端口
+
+spring:
+  application:
+    name: spring-cloud-alibaba-provider-mysql
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 16.163.97.13:8848
+  ######################### 数据库连接 #################################
+  datasource:
+    username: root        #数据库登陆用户名
+    password: mauFJcuf5dhRMQrjj        #数据库登陆密码
+    url: jdbc:mysql://16.163.97.13:3306/quotes?allowPublicKeyRetrieval=true&useSSL=false    #数据库url
+    driver-class-name: com.mysql.jdbc.Driver
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"   # * 在yaml 文件属于关键字，所以需要加引号
+###################################### MyBatis 配置 ######################################
+mybatis:
+  # 指定 mapper.xml 的位置
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  #扫描实体类的位置,在此处指明扫描实体类的包，在 mapper.xml 中就可以不写实体类的全路径名
+  type-aliases-package: com.sk.scott
+  configuration:
+    #默认开启驼峰命名法，可以不用设置该属性
+    map-underscore-to-camel-case: true

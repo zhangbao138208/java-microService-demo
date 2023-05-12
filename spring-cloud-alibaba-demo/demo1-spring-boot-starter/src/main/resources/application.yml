@@ -1,0 +1,8 @@
+server:
+  port: 8888 #端口
+com:
+  sk:
+    scott:
+      dept:
+        id: 33
+        name: test1
